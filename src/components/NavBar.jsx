@@ -39,7 +39,9 @@ export default function NavBar() {
 	return (
 		<nav className="navbar navbar-dark bg-primary">
 			<div className="container-fluid d-flex flex-nowrap flex-row align-items-center justify-content-center">
-				<div className="navbar-brand fw-bold me-4">Network Call Practice</div>
+				<div className="navbar-brand fw-bold ms-3 me-5">
+					Network Call Practice
+				</div>
 				<ul className="navbar-nav mb-2 mb-lg-0 d-flex flex-row justify-content-center align-items-center">
 					<RenderNavMenus />
 				</ul>
