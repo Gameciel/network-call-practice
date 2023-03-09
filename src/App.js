@@ -8,7 +8,7 @@ function App() {
 	return (
 		<BrowserRouter>
 			<NavBar />
-			<div className="container d-flex flex-row align-items-center justify-content-center">
+			<div className="container mt-5 pt-5 d-flex flex-row align-items-center justify-content-center">
 				<Routes>
 					<Route path="/users" element={<Users />} />
 					<Route path="/register" element={<Register />} />
