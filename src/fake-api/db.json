@@ -1,0 +1,22 @@
+{
+	"user": [
+		{
+			"id": 1,
+			"user_name": "Ganyu",
+			"email": "ganyu@liyue.com",
+			"password": "rexlapis123"
+		},
+		{
+			"id": 2,
+			"user_name": "John Doe",
+			"email": "john.doe@test.com",
+			"password": "johndoe123"
+		},
+		{
+			"id": 3,
+			"user_name": "Jane Doe",
+			"email": "jane.doe@test.com",
+			"password": "janedoe123"
+		}
+	]
+}
