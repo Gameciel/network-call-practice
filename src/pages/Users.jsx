@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ColumnGroup } from "primereact/columngroup";
-import { Message } from "primereact/message";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Tag } from "primereact/tag";
@@ -15,7 +14,6 @@ export default function Users() {
 		axios
 			.get(`${API_URL}/user`)
 			.then(res => {
-				console.log(res.data);
 				setUserList(res.data);
 			})
 			.catch(err => {
