@@ -1,11 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Users from "./pages/Users";
 import NavBar from "./components/NavBar";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
 
-import FormikRegisterPage from "./components/FormikRegisterPage";
-import FormikLoginPage from "./components/FormikLoginPage";
+import FormikRegisterPage from "./pages/RegisterPage";
+import FormikLoginPage from "./pages/LoginPage";
 
 function App() {
 	return (

@@ -8,6 +8,9 @@ export default function NavBar() {
 		const navs = ["Users", "Register", "Login"];
 
 		return navs.map((value, index) => {
+			if (window.location.pathname.substr(1) === value.toLowerCase()) {
+				setLocation(index);
+			}
 			if (location === index) {
 				return (
 					<li className="nav-item me-3">

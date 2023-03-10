@@ -16,6 +16,7 @@ export default function FormikRegisterPage() {
 			console.log(values);
 		},
 		validateOnChange: false,
+		validateOnBlur: true,
 		validationSchema: Yup.object({
 			name: Yup.string()
 				.min(6, "Minimal 6 karakter nama")
@@ -45,7 +46,7 @@ export default function FormikRegisterPage() {
 
 	console.log(formik);
 	return (
-		<form onSubmit={formik.handleSubmit}>
+		<form onSubmit={formik.handleSubmit} noValidate>
 			<div className="mt-5 border rounded shadow-sm px-5 py-1 pb-3 d-flex flex-column flex align-items-center justify-content-center">
 				<h2 className="mx-5 mt-4">Register Form</h2>
 				<div className="d-flex flex-column align-items-center justify-content-center w-100">
@@ -57,21 +58,21 @@ export default function FormikRegisterPage() {
 						) : (
 							<label htmlFor="name">Name</label>
 						)}
+						<span className="fw-bold text-danger">*</span>
 					</div>
-					<div class="input-group flex-nowrap mb-4">
-						<div class="input-group d-flex flex-column">
+					<div className="input-group flex-nowrap mb-4">
+						<div className="input-group d-flex flex-column">
 							<input
 								type="text"
 								name="name"
 								id="name"
 								className="form-control w-100 rounded"
 								placeholder="Name"
-								aria-label="Register_Name"
-								aria-describedby="button-addon2"
 								value={formik.values.username}
 								onChange={formik.handleChange}
+								onBlur={formik.handleBlur}
 							/>
-							{formik.errors.name && (
+							{formik.errors.name && formik.touched.name && (
 								<div
 									className="text-danger ms-1 position-absolute"
 									style={{ bottom: "-1.45em" }}
@@ -93,6 +94,7 @@ export default function FormikRegisterPage() {
 						) : (
 							<label htmlFor="email">Email</label>
 						)}
+						<span className="fw-bold text-danger">*</span>
 					</div>
 					<div className="input-group flex-nowrap mb-4">
 						<div className="input-group d-flex flex-column">
@@ -102,12 +104,11 @@ export default function FormikRegisterPage() {
 								className="form-control w-100 rounded"
 								name="email"
 								placeholder="Email"
-								aria-label="Register_Email"
-								aria-describedby="button-addon2"
 								value={formik.values.email}
 								onChange={formik.handleChange}
+								onBlur={formik.handleBlur}
 							/>
-							{formik.errors.email && (
+							{formik.errors.email && formik.touched.email && (
 								<div
 									className="text-danger ms-1 position-absolute"
 									style={{ bottom: "-1.45em" }}
@@ -126,6 +127,7 @@ export default function FormikRegisterPage() {
 						) : (
 							<label htmlFor="password">Password</label>
 						)}
+						<span className="fw-bold text-danger">*</span>
 					</div>
 					<div className="input-group flex-nowrap mb-4">
 						<div className="d-flex flex-column w-100">
@@ -145,10 +147,9 @@ export default function FormikRegisterPage() {
 										placeholder="Password"
 										id="password"
 										name="password"
-										aria-label="Register_Password"
-										aria-describedby="button-addon2"
 										value={formik.values.password}
 										onChange={formik.handleChange}
+										onBlur={formik.handleBlur}
 									/>
 								) : (
 									<input
@@ -157,14 +158,12 @@ export default function FormikRegisterPage() {
 										placeholder="Password"
 										id="password"
 										name="password"
-										aria-label="Register_Password"
-										aria-describedby="button-addon2"
 										value={formik.values.password}
 										onChange={formik.handleChange}
 									/>
 								)}
 							</div>
-							{formik.errors.password && (
+							{formik.errors.password && formik.touched.password && (
 								<div
 									className="text-danger ms-1 position-absolute"
 									style={{ bottom: "-1.45em" }}

@@ -11,25 +11,13 @@ export default function Register() {
 				<div className="align-self-start ms-4 mt-4 mb-2 me-auto">Name</div>
 				<div class="input-group flex-nowrap">
 					<div class="input-group mb-3 mx-4">
-						<input
-							type="text"
-							class="form-control"
-							placeholder="Name"
-							aria-label="Register_Name"
-							aria-describedby="button-addon2"
-						/>
+						<input type="text" class="form-control" placeholder="Name" />
 					</div>
 				</div>
 				<div className="align-self-start ms-4 mt-1 mb-2 me-auto">Email</div>
 				<div class="input-group flex-nowrap">
 					<div class="input-group mb-3 mx-4">
-						<input
-							type="email"
-							class="form-control"
-							placeholder="Email"
-							aria-label="Register_Email"
-							aria-describedby="button-addon2"
-						/>
+						<input type="email" class="form-control" placeholder="Email" />
 					</div>
 				</div>
 				<div className="align-self-start ms-4 mt-1 mb-2 me-auto">Password</div>
@@ -48,20 +36,12 @@ export default function Register() {
 							)}
 						</button>
 						{eyeMode ? (
-							<input
-								type="text"
-								class="form-control"
-								placeholder="Password"
-								aria-label="Register_Password"
-								aria-describedby="button-addon2"
-							/>
+							<input type="text" class="form-control" placeholder="Password" />
 						) : (
 							<input
 								type="password"
 								class="form-control"
 								placeholder="Password"
-								aria-label="Register_Password"
-								aria-describedby="button-addon2"
 							/>
 						)}
 					</div>
