@@ -16,11 +16,11 @@ export default function FormikLoginPage() {
 		},
 		validationSchema: Yup.object({
 			email: Yup.string()
-				.email("Input format email yang tepat")
-				.required("Email tidak boleh kosong"),
+				.email("Invalid email format")
+				.required("Field can't be empty"),
 			password: Yup.string()
-				.min(6, "Minimal 6 karakter password")
-				.required("Password tidak boleh kosong"),
+				.min(6, "Invalid Password - minimum 6 characters")
+				.required("Field can't be empty"),
 		}),
 		validateOnBlur: true,
 		validateOnChange: false,

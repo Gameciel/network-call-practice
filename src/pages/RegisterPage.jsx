@@ -19,11 +19,11 @@ export default function FormikRegisterPage() {
 		validateOnBlur: true,
 		validationSchema: Yup.object({
 			name: Yup.string()
-				.min(6, "Minimal 6 karakter nama")
-				.required("Nama tidak boleh kosong"),
+				.min(6, "Invalid Name - minimum 6 characters")
+				.required("Field can't be empty"),
 			email: Yup.string()
-				.email("Input format email yang tepat")
-				.required("Email tidak boleh kosong"),
+				.email("Invalid email format")
+				.required("Field can't be empty"),
 			password: Yup.string()
 				.matches(/[A-Z]/, "at least one uppercase char")
 				.matches(/[0-9]/, "at least one number")
@@ -31,8 +31,8 @@ export default function FormikRegisterPage() {
 					/[@$!%*?&/.,]/,
 					"at least one special char @ $ ! % * ? & / . ,"
 				)
-				.min(6, "Minimal 6 karakter password")
-				.required("Tidak boleh kosong"),
+				.min(6, "Invalid Password - minimum 6 characters")
+				.required("Field can't be empty"),
 		}),
 	});
 
@@ -51,7 +51,7 @@ export default function FormikRegisterPage() {
 				<h2 className="mx-5 mt-4">Register Form</h2>
 				<div className="d-flex flex-column align-items-center justify-content-center w-100">
 					<div className="align-self-start mt-3 mb-1">
-						{formik.errors.name ? (
+						{formik.errors.name && formik.touched.name ? (
 							<label htmlFor="name" className="text-danger">
 								Name
 							</label>
@@ -87,7 +87,7 @@ export default function FormikRegisterPage() {
 					</div>
 
 					<div className="align-self-start me-auto pt-1 mb-1">
-						{formik.errors.email ? (
+						{formik.errors.email && formik.touched.email ? (
 							<label htmlFor="email" className="text-danger">
 								Email
 							</label>
@@ -120,7 +120,7 @@ export default function FormikRegisterPage() {
 						</div>
 					</div>
 					<div className="align-self-start me-auto pt-1 mb-1">
-						{formik.errors.password ? (
+						{formik.errors.password && formik.touched.password ? (
 							<label htmlFor="password" className="text-danger">
 								Password
 							</label>
@@ -160,6 +160,7 @@ export default function FormikRegisterPage() {
 										name="password"
 										value={formik.values.password}
 										onChange={formik.handleChange}
+										onBlur={formik.handleBlur}
 									/>
 								)}
 							</div>
