@@ -2,8 +2,9 @@ import { useFormik } from "formik";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
+import Axios from "axios";
 
-export default function FormikRegisterPage() {
+export default function RegisterPage() {
 	const [eyeMode, setEyeMode] = useState(false);
 
 	const formik = useFormik({
@@ -13,7 +14,18 @@ export default function FormikRegisterPage() {
 			password: "",
 		},
 		onSubmit: values => {
-			console.log(values);
+			Axios.get("https://api.ipify.org?format=json").then(res => {
+				const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+				Axios.post(`http://localhost:2000/user`, {
+					role: "user",
+					user_name: values.name,
+					email: values.email,
+					password: values.password,
+					registeredAt: `${new Date()}, ${timezone}`,
+					userLocation: res.data.ip,
+				});
+			});
 		},
 		validateOnChange: false,
 		validateOnBlur: true,

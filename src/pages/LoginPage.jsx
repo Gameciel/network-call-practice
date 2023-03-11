@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 
-export default function FormikLoginPage() {
+export default function LoginPage() {
 	const [eyeMode, setEyeMode] = useState(false);
 
 	const formik = useFormik({
