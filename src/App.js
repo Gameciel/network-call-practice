@@ -18,6 +18,7 @@ function App() {
 				<NavBar />
 				<div className="container mt-2 pt-5 d-flex flex-row align-items-center justify-content-center">
 					<Routes>
+						<Route path="/network-call-practice/" element={<Users />} />
 						<Route path="/network-call-practice/users" element={<Users />} />
 						<Route
 							path="/network-call-practice/register"
