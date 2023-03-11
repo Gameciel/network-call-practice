@@ -174,7 +174,7 @@ export default function LoginForm(props) {
 								Login
 							</button>
 							<Link
-								to="/register"
+								to="/network-call-practice/register"
 								onClick={() => dispatch(changePathName("register"))}
 								className="btn btn-link ms-auto my-3"
 							>

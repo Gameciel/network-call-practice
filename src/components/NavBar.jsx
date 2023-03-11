@@ -77,7 +77,7 @@ const RenderNavMenus = props => {
 				<li className="nav-item me-3">
 					<Link
 						className="nav-link"
-						to={`/${value.toLowerCase()}`}
+						to={`/network-call-practice/${value.toLowerCase()}`}
 						onClick={() =>
 							props.dispatch(changePathName(`${value.toLowerCase()}`))
 						}
@@ -91,5 +91,5 @@ const RenderNavMenus = props => {
 };
 
 const getUrlParamOnRefresh = url => {
-	return url.substring(1);
+	return url.substring(23);
 };

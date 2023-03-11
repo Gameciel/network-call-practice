@@ -48,7 +48,7 @@ export default function RegisterForm() {
 								setSuccessMessage("Register success!, redirecting...");
 
 								setTimeout(() => {
-									navigate("/login");
+									navigate("/network-call-practice/login");
 									dispatch(changePathName("login"));
 								}, 4000);
 							});
@@ -238,7 +238,7 @@ export default function RegisterForm() {
 								Register
 							</button>
 							<Link
-								to="/login"
+								to="/network-call-practice/login"
 								onClick={() => {
 									dispatch(changePathName("login"));
 								}}

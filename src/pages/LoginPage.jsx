@@ -15,7 +15,7 @@ export default function LoginPage() {
 
 	if (loginSession.id) {
 		setTimeout(() => {
-			navigate("/users");
+			navigate("/network-call-practice/users");
 			dispatch(changePathName("users"));
 		}, 4000);
 		return (
