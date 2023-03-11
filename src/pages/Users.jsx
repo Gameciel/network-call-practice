@@ -40,7 +40,6 @@ const GenerateFetchedUserData = () => {
 			.get(`${API_URL}/user`)
 			.then(res => {
 				setUserList(res.data);
-				console.log(res.data);
 			})
 			.catch(err => {
 				console.log(err.response);
