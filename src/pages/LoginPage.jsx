@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { useDispatch } from "react-redux";
 import { changePathName } from "../redux/actions";
@@ -13,8 +13,14 @@ export default function LoginPage() {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
+	useEffect(() => {
+		return () => {
+			clearTimeout(redirectTimeout);
+		};
+	}, []);
+
 	if (loginSession.id) {
-		setTimeout(() => {
+		var redirectTimeout = setTimeout(() => {
 			navigate("/users");
 			dispatch(changePathName("users"));
 		}, 4000);

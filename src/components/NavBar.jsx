@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changePathName, logOut } from "../redux/actions";
 
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
 	const loginSession = useSelector(state => state.loginSession);
 	const appSetting = useSelector(state => state.appSetting);
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(changePathName(getUrlParamOnRefresh(window.location.pathname)));
+	}, []);
 
 	return (
 		<nav className="navbar navbar-dark bg-primary">
@@ -85,4 +89,8 @@ const RenderNavMenus = props => {
 			);
 		}
 	});
+};
+
+const getUrlParamOnRefresh = url => {
+	return url.substring(1);
 };

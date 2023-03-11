@@ -16,6 +16,7 @@ export default function LoginForm(props) {
 
 	const [eyeMode, setEyeMode] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
+	const [isBusy, setBusy] = useState(false);
 
 	const formik = useFormik({
 		initialValues: {
@@ -23,7 +24,7 @@ export default function LoginForm(props) {
 			password: "",
 		},
 		onSubmit: async values => {
-			// set busy
+			setBusy(true);
 			Axios.get(`${API_URL}/user`, {
 				params: {
 					email: values.email.toLowerCase(),
@@ -34,7 +35,7 @@ export default function LoginForm(props) {
 
 					if (isEmailCorrect) {
 						const isPasswordCorrect = res.data[0].password === values.password;
-						console.log(res.data[0].password);
+
 						if (isPasswordCorrect) {
 							dispatch(userLogin(res.data[0]));
 						} else {
@@ -46,7 +47,7 @@ export default function LoginForm(props) {
 				})
 				.catch(err => console.error(err))
 				.finally(() => {
-					// set busy off
+					setBusy(false);
 				});
 		},
 		validationSchema: Yup.object({
@@ -165,6 +166,7 @@ export default function LoginForm(props) {
 							<button
 								type="submit"
 								className="btn btn-primary rounded-pill border me-auto px-4 my-3"
+								disabled={isBusy}
 							>
 								Login
 							</button>

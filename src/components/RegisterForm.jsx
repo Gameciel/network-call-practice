@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -14,9 +14,17 @@ export default function RegisterForm() {
 	const [eyeMode, setEyeMode] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
 	const [successMessage, setSuccessMessage] = useState("");
+	const [isBusy, setBusy] = useState(false);
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	var redirectTimeout;
+
+	useEffect(() => {
+		return () => {
+			clearTimeout(redirectTimeout);
+		};
+	}, []);
 
 	const formik = useFormik({
 		initialValues: {
@@ -24,11 +32,13 @@ export default function RegisterForm() {
 			email: "",
 			password: "",
 		},
-		onSubmit: values => {
+		onSubmit: async values => {
+			setBusy(true);
 			Axios.get(`${API_URL}/user`, { params: { email: values.email } }).then(
 				res => {
 					if (res.data.length) {
 						setErrorMessage("User already exist!");
+						setBusy(false);
 					} else {
 						Axios.get("https://api.ipify.org?format=json").then(res => {
 							const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -43,7 +53,7 @@ export default function RegisterForm() {
 								setErrorMessage("");
 								setSuccessMessage("Register success!, redirecting...");
 
-								setTimeout(() => {
+								var redirectTimeout = setTimeout(() => {
 									navigate("/login");
 									dispatch(changePathName("login"));
 								}, 4000);
@@ -227,6 +237,7 @@ export default function RegisterForm() {
 							<button
 								type="submit"
 								className="btn btn-primary rounded-pill border me-auto px-4 my-3"
+								disabled={isBusy}
 							>
 								Register
 							</button>
