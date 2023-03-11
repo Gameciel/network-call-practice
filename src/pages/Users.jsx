@@ -15,7 +15,7 @@ export default function Users() {
 				<div className="d-flex flex-row">
 					<i className="bi bi-info-circle me-2"></i>
 					<div>
-						Make sure to run json-server on port <b>2000</b>
+						My server might be having <b>outage</b>: try again later.
 					</div>
 					<button
 						type="button"
@@ -24,9 +24,8 @@ export default function Users() {
 						aria-label="Close"
 					></button>
 				</div>
-				<i className="bi bi-info-circle me-2"></i>Make sure to run json-server
-				on <strong>src/fake-api</strong>
 			</div>
+
 			<h1 className="mb-4 mt-3 fw-bolder">User credentials:</h1>
 			<GenerateFetchedUserData />
 		</div>

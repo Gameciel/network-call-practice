@@ -9,6 +9,9 @@ export default function NavBar() {
 	const appSetting = useSelector(state => state.appSetting);
 	const dispatch = useDispatch();
 
+	useEffect(() => {
+		dispatch(changePathName(getUrlParamOnRefresh(window.location.pathname)));
+	}, []);
 	return (
 		<nav className="navbar navbar-dark bg-primary">
 			<div className="container-fluid d-flex flex-nowrap flex-row align-items-center justify-content-center">
@@ -85,4 +88,8 @@ const RenderNavMenus = props => {
 			);
 		}
 	});
+};
+
+const getUrlParamOnRefresh = url => {
+	return url.substring(1);
 };
