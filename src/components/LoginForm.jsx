@@ -22,26 +22,32 @@ export default function LoginForm(props) {
 			email: "",
 			password: "",
 		},
-		onSubmit: values => {
+		onSubmit: async values => {
+			// set busy
 			Axios.get(`${API_URL}/user`, {
 				params: {
 					email: values.email.toLowerCase(),
 				},
-			}).then(res => {
-				const isEmailCorrect = Boolean(res.data[0]);
+			})
+				.then(res => {
+					const isEmailCorrect = Boolean(res.data[0]);
 
-				if (isEmailCorrect) {
-					const isPasswordCorrect = res.data[0].password === values.password;
-					console.log(res.data[0].password);
-					if (isPasswordCorrect) {
-						dispatch(userLogin(res.data[0]));
+					if (isEmailCorrect) {
+						const isPasswordCorrect = res.data[0].password === values.password;
+						console.log(res.data[0].password);
+						if (isPasswordCorrect) {
+							dispatch(userLogin(res.data[0]));
+						} else {
+							setErrorMessage("Wrong password!");
+						}
 					} else {
-						setErrorMessage("Wrong password!");
+						setErrorMessage("Email is not registered!");
 					}
-				} else {
-					setErrorMessage("Email is not registered!");
-				}
-			});
+				})
+				.catch(err => console.error(err))
+				.finally(() => {
+					// set busy off
+				});
 		},
 		validationSchema: Yup.object({
 			email: Yup.string()
