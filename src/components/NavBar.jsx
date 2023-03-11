@@ -32,10 +32,10 @@ export default function NavBar() {
 								</b>{" "}
 								<i className="bi bi-person-circle ms-1 me-3"></i> |
 							</li>
-							<li className="nav-item me-4">
+							<li className="nav-item me-4 ms-2">
 								<button
 									onClick={() => dispatch(logOut())}
-									className="btn btn-link text-danger text-decoration-none fw-bold"
+									className="btn btn-warning text-link text-decoration-none fw-bold"
 								>
 									<i className="bi bi-reply-all-fill"></i> Logout
 								</button>

@@ -35,7 +35,7 @@ export default function RegisterForm() {
 							Axios.post(`${API_URL}/user`, {
 								role: "user",
 								user_name: values.name,
-								email: values.email,
+								email: values.email.toLowerCase(),
 								password: values.password,
 								registeredAt: `${new Date()}, ${timezone}`,
 								userLocation: res.data.ip,
