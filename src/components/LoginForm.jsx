@@ -16,32 +16,42 @@ export default function LoginForm(props) {
 
 	const [eyeMode, setEyeMode] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
+	const [isBusy, setIsBusy] = useState(false);
 
 	const formik = useFormik({
 		initialValues: {
 			email: "",
 			password: "",
 		},
-		onSubmit: values => {
+		onSubmit: async values => {
+			setIsBusy(true);
+
 			Axios.get(`${API_URL}/user`, {
 				params: {
 					email: values.email.toLowerCase(),
 				},
-			}).then(res => {
-				const isEmailCorrect = Boolean(res.data[0]);
+			})
+				.then(res => {
+					const isEmailCorrect = Boolean(res.data[0]);
 
-				if (isEmailCorrect) {
-					const isPasswordCorrect = res.data[0].password === values.password;
-					console.log(res.data[0].password);
-					if (isPasswordCorrect) {
-						dispatch(userLogin(res.data[0]));
+					if (isEmailCorrect) {
+						const isPasswordCorrect = res.data[0].password === values.password;
+						console.log(res.data[0].password);
+						if (isPasswordCorrect) {
+							dispatch(userLogin(res.data[0]));
+						} else {
+							setErrorMessage("Wrong password!");
+						}
 					} else {
-						setErrorMessage("Wrong password!");
+						setErrorMessage("Email is not registered!");
 					}
-				} else {
-					setErrorMessage("Email is not registered!");
-				}
-			});
+				})
+				.catch(err => {
+					console.error(err);
+				})
+				.finally(() => {
+					setIsBusy(false);
+				});
 		},
 		validationSchema: Yup.object({
 			email: Yup.string()
@@ -159,6 +169,7 @@ export default function LoginForm(props) {
 							<button
 								type="submit"
 								className="btn btn-primary rounded-pill border me-auto px-4 my-3"
+								disabled={isBusy}
 							>
 								Login
 							</button>

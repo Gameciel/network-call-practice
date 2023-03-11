@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -15,6 +15,8 @@ export default function RegisterForm() {
 	const [errorMessage, setErrorMessage] = useState("");
 	const [successMessage, setSuccessMessage] = useState("");
 
+	const [isBusy, setIsBusy] = useState(false);
+
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
@@ -24,11 +26,13 @@ export default function RegisterForm() {
 			email: "",
 			password: "",
 		},
-		onSubmit: values => {
-			Axios.get(`${API_URL}/user`, { params: { email: values.email } }).then(
-				res => {
+		onSubmit: async values => {
+			setIsBusy(true);
+			Axios.get(`${API_URL}/user`, { params: { email: values.email } })
+				.then(res => {
 					if (res.data.length) {
 						setErrorMessage("User already exist!");
+						setIsBusy(false);
 					} else {
 						Axios.get("https://api.ipify.org?format=json").then(res => {
 							const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -50,8 +54,10 @@ export default function RegisterForm() {
 							});
 						});
 					}
-				}
-			);
+				})
+				.catch(err => {
+					console.error(err);
+				});
 		},
 		validateOnChange: false,
 		validateOnBlur: true,
@@ -227,6 +233,7 @@ export default function RegisterForm() {
 							<button
 								type="submit"
 								className="btn btn-primary rounded-pill border me-auto px-4 my-3"
+								disabled={isBusy}
 							>
 								Register
 							</button>
