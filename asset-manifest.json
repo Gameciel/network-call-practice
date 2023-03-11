@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/network-call-practice/static/css/main.f8f285a1.css",
+    "main.js": "/network-call-practice/static/js/main.2e9e0640.js",
+    "static/js/787.7cb50e26.chunk.js": "/network-call-practice/static/js/787.7cb50e26.chunk.js",
+    "static/media/primeicons.svg": "/network-call-practice/static/media/primeicons.e1441b135b3ca9ad643c.svg",
+    "static/media/bootstrap-icons.woff?": "/network-call-practice/static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
+    "static/media/bootstrap-icons.woff2?": "/network-call-practice/static/media/bootstrap-icons.b2e5aab643c6f0fd2da6.woff2",
+    "static/media/primeicons.eot": "/network-call-practice/static/media/primeicons.d44157bdfa026dc877af.eot",
+    "static/media/primeicons.woff": "/network-call-practice/static/media/primeicons.10d3152104f2208ac82a.woff",
+    "static/media/primeicons.ttf": "/network-call-practice/static/media/primeicons.ea5358601d0a3fd6670b.ttf",
+    "static/media/primeicons.woff2": "/network-call-practice/static/media/primeicons.78172950b335ccdb94e2.woff2",
+    "index.html": "/network-call-practice/index.html",
+    "main.f8f285a1.css.map": "/network-call-practice/static/css/main.f8f285a1.css.map",
+    "main.2e9e0640.js.map": "/network-call-practice/static/js/main.2e9e0640.js.map",
+    "787.7cb50e26.chunk.js.map": "/network-call-practice/static/js/787.7cb50e26.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f8f285a1.css",
+    "static/js/main.2e9e0640.js"
+  ]
+}
