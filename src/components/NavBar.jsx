@@ -56,7 +56,6 @@ const RenderNavMenus = props => {
 
 	return navs.map((value, index) => {
 		if (value.toLowerCase() === props.appSetting.pathName) {
-			console.log(props.appSetting.pathName);
 			return (
 				<li className="nav-item me-3">
 					<Link
