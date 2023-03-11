@@ -76,7 +76,7 @@ export default function Users() {
 	};
 
 	return (
-		<div className="d-flex flex-column container align-items-center">
+		<div className="d-flex flex-column container align-items-center mb-5 pb-5">
 			<div class="alert alert-info alert-dismissible fade show" role="alert">
 				<h5>If data doesn't show up:</h5>
 				<div className="d-flex flex-row">

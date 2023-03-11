@@ -1,52 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "../redux/actions";
+import { changePathName, logOut } from "../redux/actions";
 
 import { Link, useLocation, useParams } from "react-router-dom";
 
 export default function NavBar() {
-	const [location, setLocation] = useState(0);
-
 	const loginSession = useSelector(state => state.loginSession);
+	const appSetting = useSelector(state => state.appSetting);
 	const dispatch = useDispatch();
-
-	const RenderNavMenus = () => {
-		const navs = ["Users", "Register", "Login"];
-
-		return navs.map((value, index) => {
-			if (window.location.pathname.substr(1) === value.toLowerCase()) {
-				setLocation(index);
-			}
-
-			if (location === index) {
-				return (
-					<li className="nav-item me-3">
-						<Link
-							className="nav-link active"
-							aria-current="page"
-							onClick={() => setLocation(index)}
-						>
-							{value}
-						</Link>
-					</li>
-				);
-			} else if (index > 0 && loginSession.id) {
-				return;
-			} else {
-				return (
-					<li className="nav-item me-3">
-						<Link
-							className="nav-link"
-							to={`/${value.toLowerCase()}`}
-							onClick={() => setLocation(index)}
-						>
-							{value}
-						</Link>
-					</li>
-				);
-			}
-		});
-	};
 
 	return (
 		<nav className="navbar navbar-dark bg-primary">
@@ -55,7 +16,11 @@ export default function NavBar() {
 					Network Call Practice
 				</div>
 				<ul className="navbar-nav mb-2 mb-lg-0 d-flex flex-row justify-content-center align-items-center">
-					<RenderNavMenus />
+					<RenderNavMenus
+						dispatch={dispatch}
+						appSetting={appSetting}
+						isLoggedIn={Boolean(loginSession.id)}
+					/>
 				</ul>
 				<ul className="navbar-nav d-flex flex-row justify-content-center align-items-center ms-auto">
 					{loginSession.id ? (
@@ -82,3 +47,42 @@ export default function NavBar() {
 		</nav>
 	);
 }
+
+const RenderNavMenus = props => {
+	const navs = ["Users", "Register", "Login"];
+
+	return navs.map((value, index) => {
+		if (value.toLowerCase() === props.appSetting.pathName) {
+			console.log(props.appSetting.pathName);
+			return (
+				<li className="nav-item me-3">
+					<Link
+						className="nav-link active"
+						aria-current="page"
+						onClick={() =>
+							props.dispatch(changePathName(`${value.toLowerCase()}`))
+						}
+					>
+						{value}
+					</Link>
+				</li>
+			);
+		} else if (index > 0 && props.isLoggedIn) {
+			return;
+		} else {
+			return (
+				<li className="nav-item me-3">
+					<Link
+						className="nav-link"
+						to={`/${value.toLowerCase()}`}
+						onClick={() =>
+							props.dispatch(changePathName(`${value.toLowerCase()}`))
+						}
+					>
+						{value}
+					</Link>
+				</li>
+			);
+		}
+	});
+};

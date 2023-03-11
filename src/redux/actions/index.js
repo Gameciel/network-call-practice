@@ -1,3 +1,5 @@
+import { isCompositeComponent } from "react-dom/test-utils";
+
 export const userLogin = userData => {
 	return dispatch => {
 		dispatch({
@@ -10,5 +12,11 @@ export const userLogin = userData => {
 export const logOut = () => {
 	return dispatch => {
 		dispatch({ type: "LOG_OUT" });
+	};
+};
+
+export const changePathName = path => {
+	return dispatch => {
+		dispatch({ type: "CHANGE", payload: path });
 	};
 };

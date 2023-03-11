@@ -5,7 +5,6 @@ const init_state = {
 };
 
 export const loginSessionReducer = (state = init_state, action) => {
-	// console.log(action.payload);
 	switch (action.type) {
 		case "USER_LOGIN":
 			return {

@@ -5,28 +5,21 @@
 			"role": "admin",
 			"user_name": "zhongli",
 			"email": "zhongli@liyue.com",
-			"password": "rexlapis123"
+			"password": "Rexlapis123."
 		},
 		{
 			"id": 2,
 			"role": "user",
 			"user_name": "John Doe",
 			"email": "john.doe@test.com",
-			"password": "johndoe123"
+			"password": "Johndoe123."
 		},
 		{
 			"id": 3,
 			"role": "user",
 			"user_name": "Jane Doe",
 			"email": "jane.doe@test.com",
-			"password": "janedoe123"
-		},
-		{
-			"id": 4,
-			"role": "user",
-			"user_name": "dummy",
-			"email": "dummy@dummy.com",
-			"password": "dummy"
+			"password": "Janedoe123."
 		}
 	]
 }
