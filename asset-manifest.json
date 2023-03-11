@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/network-call-practice/static/css/main.f8f285a1.css",
-    "main.js": "/network-call-practice/static/js/main.1ae492ab.js",
+    "main.js": "/network-call-practice/static/js/main.cf8632cf.js",
     "static/js/787.7cb50e26.chunk.js": "/network-call-practice/static/js/787.7cb50e26.chunk.js",
     "static/media/primeicons.svg": "/network-call-practice/static/media/primeicons.e1441b135b3ca9ad643c.svg",
     "static/media/bootstrap-icons.woff?": "/network-call-practice/static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
@@ -12,11 +12,11 @@
     "static/media/primeicons.woff2": "/network-call-practice/static/media/primeicons.78172950b335ccdb94e2.woff2",
     "index.html": "/network-call-practice/index.html",
     "main.f8f285a1.css.map": "/network-call-practice/static/css/main.f8f285a1.css.map",
-    "main.1ae492ab.js.map": "/network-call-practice/static/js/main.1ae492ab.js.map",
+    "main.cf8632cf.js.map": "/network-call-practice/static/js/main.cf8632cf.js.map",
     "787.7cb50e26.chunk.js.map": "/network-call-practice/static/js/787.7cb50e26.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f8f285a1.css",
-    "static/js/main.1ae492ab.js"
+    "static/js/main.cf8632cf.js"
   ]
 }
