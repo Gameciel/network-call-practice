@@ -26,7 +26,7 @@ export default function LoginForm(props) {
 		onSubmit: async values => {
 			setIsBusy(true);
 
-			Axios.get(`${API_URL}/user`, {
+			Axios.get(`${API_URL}/user/`, {
 				params: {
 					email: values.email.toLowerCase(),
 				},

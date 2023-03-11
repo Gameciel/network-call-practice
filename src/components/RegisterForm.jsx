@@ -48,7 +48,7 @@ export default function RegisterForm() {
 								setSuccessMessage("Register success!, redirecting...");
 
 								setTimeout(() => {
-									navigate("/network-call-practice/login");
+									navigate("/network-call-practice/login/");
 									dispatch(changePathName("login"));
 								}, 4000);
 							});

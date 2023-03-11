@@ -37,7 +37,7 @@ const GenerateFetchedUserData = () => {
 
 	useEffect(() => {
 		axios
-			.get(`${API_URL}/user`)
+			.get(`${API_URL}/user/`)
 			.then(res => {
 				setUserList(res.data);
 			})
