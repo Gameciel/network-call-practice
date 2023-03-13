@@ -1,5 +1,3 @@
-import { isCompositeComponent } from "react-dom/test-utils";
-
 export const userLogin = userData => {
 	return dispatch => {
 		dispatch({

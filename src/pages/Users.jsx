@@ -10,7 +10,10 @@ import { API_URL } from "../fake-api/API_URL";
 export default function Users() {
 	return (
 		<div className="d-flex flex-column container align-items-center mb-5 pb-5">
-			<div class="alert alert-info alert-dismissible fade show" role="alert">
+			<div
+				className="alert alert-info alert-dismissible fade show"
+				role="alert"
+			>
 				<h5>If data doesn't show up:</h5>
 				<div className="d-flex flex-row">
 					<i className="bi bi-info-circle me-2"></i>
@@ -19,7 +22,7 @@ export default function Users() {
 					</div>
 					<button
 						type="button"
-						class="btn-close"
+						className="btn-close"
 						data-bs-dismiss="alert"
 						aria-label="Close"
 					></button>

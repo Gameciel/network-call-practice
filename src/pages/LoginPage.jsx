@@ -25,7 +25,7 @@ export default function LoginPage() {
 			dispatch(changePathName("users"));
 		}, 4000);
 		return (
-			<div class="alert alert-success px-4 text-center" role="alert">
+			<div className="alert alert-success px-4 text-center" role="alert">
 				You are logged in as {loginSession.user_name}, redirecting...
 			</div>
 		);
